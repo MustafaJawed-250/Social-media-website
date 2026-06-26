@@ -1,5 +1,5 @@
 function persnolprofile(){
-    window.location.href = "../home page/home.html"
+    window.location.href = "../persnol page/pp.html"
 }
 
 function logout(){
