@@ -39,5 +39,5 @@ function signup(){
     mail.value = ""
     passkey.value = ""
     alert("thank you for creating your account")
-     window.location.href = "../persnol page/pp.html"
+     window.location.href = "./persnol page/pp.html"
 }
