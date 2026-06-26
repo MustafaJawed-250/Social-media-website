@@ -114,7 +114,7 @@ allposts.appendChild(createpost);
 
 function logout(){
     localStorage.removeItem("isloggedin")
-    window.location.href = "../Login page/index.html"
+    window.location.href = "../Login page/login.html"
 }
 function editprofile(){
     let des = document.querySelector("#des")
