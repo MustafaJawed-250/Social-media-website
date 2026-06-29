@@ -162,7 +162,9 @@ body{
     flex-direction: column;
     gap: 30px;
     margin: 30px auto;
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 10px;
 }
 
 .posts{
@@ -207,22 +209,83 @@ body{
     object-fit: cover;
     border-radius: 10px;
 }
+img{
+    max-width: 100%;
+}
+@media (max-width:768px){
+
+    .nav-btns{
+        width:100%;
+        display:flex;
+        gap:10px;
+    }
+
+    .nav-btns button{
+        flex:1;
+        margin:0;
+    }
+
+    .left img{
+        width:90px;
+        height:90px;
+    }
+
+    .profile-card{
+        padding:15px;
+    }
+
+    .postsimg{
+        max-height:250px;
+    }
+
+    .post{
+        padding:15px;
+    }
+
+    .ppimg{
+        width:55px;
+        height:55px;
+    }
+
+    .user-info h3{
+        font-size:18px;
+    }
+
+    .captions{
+        font-size:16px;
+    }
+
+    .post-btn{
+        width:100%;
+    }
+}
 </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="logo">Your Profile</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
 
-    <div class="nav-btns">
-        <button onclick="home()" class="home-btn">Home</button>
-        <button onclick="logout()" class="logout-btn">Logout</button>
+    <a class="navbar-brand" href="#">Your Profile</a>
+
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <button onclick="home()" class="btn btn-success me-2">Home</button>
+      <button onclick="logout()" class="btn btn-danger">Logout</button>
     </div>
+
+  </div>
 </nav>
 
-<div class="profile-card">
+<div class="container mt-4">
+    <div class="profile-card row g-4 align-items-start">
 
-    <div class="left">
+        <div class="left col-lg-4 col-md-5 col-12">
         <img src="New folder/dummy iamge.png">
       
         <strong><h2 id="username"></h2></strong>
@@ -261,7 +324,7 @@ body{
 
     </div>
 
-    <div class="right">
+     <div class="right col-lg-8 col-md-7 col-12">
 
         <textarea
 
@@ -287,7 +350,7 @@ body{
 
 
 
-
+    </div>
 </div>
 <div class="allposts">
 

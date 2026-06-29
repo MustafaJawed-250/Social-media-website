@@ -27,28 +27,30 @@ posts.forEach((item ,index) => {
     createpost.className = "posts";
 
     createpost.innerHTML = `
-
 <div class="post">
 
-    <div class="post-header">
+    <div class="post-header d-flex align-items-center justify-content-between flex-wrap">
 
-        <img class="ppimg" src="New folder/dummy iamge.png">
+        <div class="d-flex align-items-center">
+            <img class="ppimg me-3" src="New folder/dummy iamge.png">
 
-        <div class="user-info">
-            <h3>${item.username}</h3>
-            <p>${item.email}</p>
+            <div class="user-info">
+                <h3>${item.username}</h3>
+                <p>${item.email}</p>
+            </div>
         </div>
 
-        <i onclick="deletepost()" class="fa-solid fa-trash delete-icon"></i>
+        <i class="fa-solid fa-trash delete-icon"></i>
 
     </div>
 
-    <p class="captions">${item.title}</p>
+    <p class="captions mt-3">${item.title}</p>
 
-    <img class="postsimg" src="${item.imageurl}">
+    <img class="postsimg img-fluid" src="${item.imageurl}">
 
 </div>
 `;
+
  let deleteBtn = createpost.querySelector(".delete-icon");
 
   deleteBtn.addEventListener("click", function () {
@@ -94,22 +96,24 @@ function home(){
 
 <div class="post">
 
-    <div class="post-header">
+    <div class="post-header d-flex align-items-center justify-content-between flex-wrap">
 
-        <img class="ppimg" src="New folder/dummy iamge.png">
+        <div class="d-flex align-items-center">
+            <img class="ppimg me-3" src="New folder/dummy iamge.png">
 
-        <div class="user-info">
-            <h3>${isloogedindetails.username}</h3>
-            <p>${isloogedindetails.email}</p>
+            <div class="user-info">
+                <h3>${isloogedindetails.username}</h3>
+                <p>${isloogedindetails.email}</p>
+            </div>
         </div>
 
         <i class="fa-solid fa-trash delete-icon"></i>
 
     </div>
 
-    <p class="captions">${caption.value}</p>
+    <p class="captions mt-3">${caption.value}</p>
 
-    <img class="postsimg" src="${imgurl.value}">
+    <img class="postsimg img-fluid" src="${imgurl.value}">
 
 </div>
 `;

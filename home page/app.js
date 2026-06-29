@@ -17,25 +17,30 @@ posts.forEach((item) => {
 createpost.setAttribute("class", "posts");
 
     createpost.innerHTML = `
-   <div class="post">
+<div class="post">
 
-    <div class="post-header">
+    <div class="post-header d-flex align-items-center justify-content-between flex-wrap">
 
-        <img class="ppimg" src="dummy iamge.png" alt="profile">
+        <div class="d-flex align-items-center">
+            <img class="ppimg me-3" src="dummy iamge.png">
 
-        <div class="user-info">
-            <h3>${item.username}</h3>
-            <p>${item.email}</p>
+            <div class="user-info">
+                <h3>${item.username}</h3>
+                <p>${item.email}</p>
+            </div>
         </div>
+
+        <i class="fa-solid fa-trash delete-icon"></i>
 
     </div>
 
-    <p class="captions">${item.title}</p>
+    <p class="captions mt-3">${item.title}</p>
 
-    <img class="postsimg" src="${item.imageurl}" alt="Post Image">
+    <img class="postsimg img-fluid" src="${item.imageurl}">
 
 </div>
 `;
+
 
 allposts.appendChild(createpost);
 });
@@ -54,25 +59,29 @@ var isloogedindetails = isloggedin[0]
     createpost.setAttribute("class", "posts");
 
     createpost.innerHTML = `
- <div class="post">
 
-        <div class="post-header">
+<div class="post">
 
-            <img class="ppimg" src="dummy iamge.png">
+    <div class="post-header d-flex align-items-center justify-content-between flex-wrap">
+
+        <div class="d-flex align-items-center">
+            <img class="ppimg me-3" src="dummy iamge.png">
 
             <div class="user-info">
                 <h3>${isloogedindetails.username}</h3>
                 <p>${isloogedindetails.email}</p>
             </div>
-
         </div>
 
-        <p class="captions">${caption.value}</p>
-
-        <img class="postsimg" src="${imgurl.value}">
+        <i class="fa-solid fa-trash delete-icon"></i>
 
     </div>
-    `;
+
+    <p class="captions mt-3">${caption.value}</p>
+
+    <img class="postsimg img-fluid" src="${imgurl.value}">
+
+</div>`
 allposts.appendChild(createpost);
 
     let postobj = {
