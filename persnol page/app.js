@@ -16,7 +16,7 @@ console.log(isloogedindetails.id)
 var posts = JSON.parse(localStorage.getItem("userpostskey")) || [];
 
 
-posts.forEach((item) => {
+posts.forEach((item ,index) => {
 
     if (item.userid !== isloogedindetails.id) {
         return;
@@ -27,28 +27,51 @@ posts.forEach((item) => {
     createpost.className = "posts";
 
     createpost.innerHTML = `
-    <div class="post">
 
-        <div class="post-header">
+<div class="post">
 
-            <img class="ppimg" src="New folder/dummy iamge.png">
+    <div class="post-header">
 
-            <div class="user-info">
-                <h3>${item.username}</h3>
-                <p>${item.email}</p>
-            </div>
+        <img class="ppimg" src="New folder/dummy iamge.png">
 
+        <div class="user-info">
+            <h3>${item.username}</h3>
+            <p>${item.email}</p>
         </div>
 
-        <p class="captions">${item.title}</p>
-
-        <img class="postsimg" src="${item.imageurl}">
+        <i onclick="deletepost()" class="fa-solid fa-trash delete-icon"></i>
 
     </div>
-    `;
 
-    allposts.appendChild(createpost);
+    <p class="captions">${item.title}</p>
+
+    <img class="postsimg" src="${item.imageurl}">
+
+</div>
+`;
+ let deleteBtn = createpost.querySelector(".delete-icon");
+
+  deleteBtn.addEventListener("click", function () {
+
+    let isConfirm = confirm("Do you want to delete this post?");
+
+    if (isConfirm) {
+
+        createpost.remove();
+
+        posts.splice(index, 1);
+
+        localStorage.setItem("userpostskey", JSON.stringify(posts));
+
+    } else {
+
+        alert("Post was not deleted.");
+
+    }
+
 });
+    allposts.appendChild(createpost);
+})
 
 
 function home(){
@@ -68,25 +91,43 @@ function home(){
     createpost.setAttribute("class", "posts");
 
     createpost.innerHTML = `
- <div class="post">
 
-        <div class="post-header">
+<div class="post">
 
-            <img class="ppimg" src="New folder/dummy iamge.png">
+    <div class="post-header">
 
-            <div class="user-info">
-                <h3>${isloogedindetails.username}</h3>
-                <p>${isloogedindetails.email}</p>
-            </div>
+        <img class="ppimg" src="New folder/dummy iamge.png">
 
+        <div class="user-info">
+            <h3>${isloogedindetails.username}</h3>
+            <p>${isloogedindetails.email}</p>
         </div>
 
-        <p class="captions">${caption.value}</p>
-
-        <img class="postsimg" src="${imgurl.value}">
+        <i class="fa-solid fa-trash delete-icon"></i>
 
     </div>
-    `;
+
+    <p class="captions">${caption.value}</p>
+
+    <img class="postsimg" src="${imgurl.value}">
+
+</div>
+`;
+let deleteBtn = createpost.querySelector(".delete-icon");
+
+deleteBtn.addEventListener("click", function () {
+
+    let isConfirm = confirm("Do you want to delete this post?");
+
+    if (isConfirm) {
+        createpost.remove();
+
+        posts.splice(index, 1);
+
+        localStorage.setItem("userpostskey", JSON.stringify(posts));
+    }
+
+});
 allposts.appendChild(createpost);
 
     let postobj = {
@@ -138,4 +179,5 @@ dexcription.textContent = dexcription.textContent
 localStorage.setItem("isloggedin", JSON.stringify(isloggedin));
     localStorage.setItem("userdetail", JSON.stringify(userdetail));
 }
+
 

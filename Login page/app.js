@@ -68,7 +68,7 @@ function login(){
 
         alert("your information didn't match any login id")
 
-        window.location.href = "../signup page/index.html"
+        window.location.href = "../index.html"
 
     }
 
